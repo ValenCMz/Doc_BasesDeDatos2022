@@ -1,0 +1,47 @@
+create or replace function fn_algoritmo() returns trigger as
+
+    $$
+    declare
+    cur_procesamientos cursor for select *
+                                  from p5p2e4_procesamiento
+                                  where id_algoritmo=new.id_algoritmo;
+    procesamiento p5p2e4_procesamiento%rowtype;
+    begin
+    if (new.costo_computacional='O(n)') then
+    open cur_procesamientos;
+
+    loop
+        fetch cur_procesamientos into procesamiento;
+        exit when not FOUND;
+        if (select modalidad
+            from p5p2e4_imagen_medica m
+            where ((m.id_paciente=procesamiento.id_paciente) and (m.id_imagen=procesamiento.id_imagen)))='FLUOROSCOPIA' then
+            raise exception 'modalidad no aceptada por el costo computacional';
+        end if;
+    end loop;
+    end if;
+    return new;
+    end
+    $$ language 'plpgsql';
+
+create trigger tr_algoritmo_costo_computacional
+    before insert or update of costo_computacional on p5p2e4_algoritmo
+    for each row
+    execute procedure fn_algoritmo();
+
+
+
+//inserto para probar
+
+insert into p5p2e4_algoritmo(id_algoritmo, nombre_metadata, descripcion, costo_computacional)
+ values (1,'asd','asd','0');
+insert into p5p2e4_procesamiento(id_algoritmo, id_paciente, id_imagen, nro_secuencia, parametro, fecha_proc)
+values (1,1,1,12,15,'12/12/2012');
+
+insert into p5p2e4_imagen_medica(id_paciente, id_imagen, modalidad, descripcion, descripcion_breve, fecha_img)
+values (1,1,'FLUOROSCOPIA','asd','g','12/11/2000');
+
+insert into p5p2e4_paciente(id_paciente, apellido, nombre, domicilio, fecha_nacimiento)
+values (1,'g','n','d','12/12/1970');
+
+update p5p2e4_algoritmo set costo_computacional='O(n)' where id_algoritmo=1;

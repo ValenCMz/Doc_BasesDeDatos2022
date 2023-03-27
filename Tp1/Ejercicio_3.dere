@@ -1,0 +1,38 @@
+<DERExt>
+ <Entity isAssociative="0" subtype="0" name="CAMIONES" y="59" width="60" x="-701">
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="matricula" pk="1" cant3="2" parent="" cant1="20" mult="0"/>
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="modelo" pk="0" cant3="2" parent="" cant1="20" mult="0"/>
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="tipo" pk="0" cant3="2" parent="" cant1="20" mult="0"/>
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="potencia" pk="0" cant3="2" parent="" cant1="20" mult="0"/>
+ </Entity>
+ <Entity isAssociative="0" subtype="0" name="CIUDAD" y="-19" width="50" x="-231">
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="codigo_de_ciudad" pk="1" cant3="2" parent="" cant1="20" mult="0"/>
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="nombre" pk="0" cant3="2" parent="" cant1="20" mult="0"/>
+ </Entity>
+ <Entity isAssociative="0" subtype="0" name="PAQUETES" y="-212" width="60" x="-231">
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="codigo_de_paquete" pk="1" cant3="2" parent="" cant1="20" mult="0"/>
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="descripcion" pk="0" cant3="2" parent="" cant1="20" mult="0"/>
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="destinatario" pk="0" cant3="2" parent="" cant1="20" mult="0"/>
+  <Compound sk="0" null="0" optionSQL="1" name="direccion_del_destinatario" pk="0" parent="" amount="2" mult="0">
+   <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="calle" pk="0" cant3="2" parent="direccion_del_destinatario" cant1="20" mult="0"/>
+   <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="nro_de_puerta" pk="0" cant3="2" parent="direccion_del_destinatario" cant1="20" mult="0"/>
+  </Compound>
+ </Entity>
+ <Entity isAssociative="0" subtype="0" name="CAMIONEROS" y="-218" width="70" x="-662">
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="DNI" pk="1" cant3="2" parent="" cant1="20" mult="0"/>
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="nombre" pk="0" cant3="2" parent="" cant1="20" mult="0"/>
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="telefono" pk="0" cant3="2" parent="" cant1="20" mult="0"/>
+  <Compound sk="0" null="0" optionSQL="1" name="direccion" pk="0" parent="" amount="2" mult="0">
+   <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="calle" pk="0" cant3="2" parent="direccion" cant1="20" mult="0"/>
+   <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="nro_de_puerta" pk="0" cant3="2" parent="direccion" cant1="20" mult="0"/>
+  </Compound>
+  <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="salario" pk="0" cant3="2" parent="" cant1="20" mult="0"/>
+  <Compound sk="0" null="0" optionSQL="1" name="pais" pk="0" parent="" amount="2" mult="0">
+   <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="provincia" pk="0" cant3="2" parent="pais" cant1="20" mult="0"/>
+   <Simple cant2="0" type="integer" sk="0" null="0" optionSQL="1" name="ciudad" pk="0" cant3="2" parent="pais" cant1="20" mult="0"/>
+  </Compound>
+ </Entity>
+ <RBinary name0="CAMIONES" max1="N" onUpdate0="restrict" y="-17" match1="simple" min1="1" rolename="" x="-676" onUpdate1="restrict" name1="CAMIONEROS" match0="simple" firstWeak="0" width="80" min0="1" dep="0" max0="N" name="conducir_fecha" onDelete0="restrict" onDelete1="restrict"/>
+ <RBinary name0="PAQUETES" max1="1" onUpdate0="restrict" y="-95.5" match1="simple" min1="1" rolename="" x="-203.5" onUpdate1="restrict" name1="CIUDAD" match0="simple" firstWeak="0" width="40" min0="1" dep="0" max0="N" name="llegan" onDelete0="restrict" onDelete1="restrict"/>
+ <RBinary name0="CAMIONEROS" max1="N" onUpdate0="restrict" y="-209" match1="simple" min1="1" rolename="" x="-343" onUpdate1="restrict" name1="PAQUETES" match0="simple" firstWeak="0" width="60" min0="1" dep="0" max0="1" name="transporta" onDelete0="restrict" onDelete1="restrict"/>
+</DERExt>

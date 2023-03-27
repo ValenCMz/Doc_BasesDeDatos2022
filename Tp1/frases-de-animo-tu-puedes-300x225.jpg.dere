@@ -1,0 +1,27 @@
+<DERExt>
+ <Entity subtype="0" width="60" y="-71" x="-264" name="FACTURAS" isAssociative="0">
+  <Compound pk="0" mult="0" null="0" optionSQL="1" name="id_factura" amount="2" parent="" sk="0">
+   <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="tipo_de_factura" cant3="2" cant1="20" parent="id_factura" sk="0"/>
+   <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="numero_de_factura" cant3="2" cant1="20" parent="id_factura" sk="0"/>
+  </Compound>
+  <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="fecha" cant3="2" cant1="20" parent="" sk="0"/>
+  <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="id_cliente" cant3="2" cant1="20" parent="" sk="0"/>
+  <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="importe_total" cant3="2" cant1="20" parent="" sk="0"/>
+ </Entity>
+ <Entity subtype="0" width="60" y="-74" x="-705" name="CLIENTES" isAssociative="0">
+  <Simple pk="1" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="id_cliente" cant3="2" cant1="20" parent="" sk="0"/>
+  <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="nombre" cant3="2" cant1="20" parent="" sk="0"/>
+  <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="apellido" cant3="2" cant1="20" parent="" sk="0"/>
+  <Simple pk="0" cant2="0" mult="0" null="1" type="integer" optionSQL="1" name="fecha_de_nacimiento" cant3="2" cant1="20" parent="" sk="0"/>
+  <Compound pk="0" mult="0" null="0" optionSQL="1" name="direccion" amount="2" parent="" sk="0">
+   <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="calle" cant3="2" cant1="20" parent="direccion" sk="0"/>
+   <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="nro_de_puerta" cant3="2" cant1="20" parent="direccion" sk="0"/>
+  </Compound>
+  <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="telefono" cant3="2" cant1="20" parent="" sk="0"/>
+  <Compound pk="0" mult="0" null="0" optionSQL="1" name="telefono_celular" amount="2" parent="" sk="0">
+   <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="nro_1" cant3="2" cant1="20" parent="telefono_celular" sk="0"/>
+   <Simple pk="0" cant2="0" mult="0" null="0" type="integer" optionSQL="1" name="nro_2" cant3="2" cant1="20" parent="telefono_celular" sk="0"/>
+  </Compound>
+ </Entity>
+ <RBinary name0="CLIENTES" name="tiene" onDelete0="restrict" min0="1" rolename="" width="40" match1="simple" max1="N" max0="N" onUpdate0="restrict" x="-425" match0="simple" name1="FACTURAS" y="-112" min1="0" firstWeak="0" dep="0" onDelete1="restrict" onUpdate1="restrict"/>
+</DERExt>

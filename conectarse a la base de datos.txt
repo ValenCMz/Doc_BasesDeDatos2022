@@ -1,0 +1,34 @@
+CONEXION A LA BASE DE DATOS
+Para conectarse el cliente Web PHPPgAdmin.
+
+desde afuera de la unicen http://dbases.exa.unicen.edu.ar:8080/phppgadmin
+
+desde adentro de la unicen http://dbases.exa.unicen.edu.ar/phppgadmin
+
+usuario: unc_250653 pass: 250653
+
+-----------------------------------
+Si utilizan otro cliente , por ejemplo DataGrip o PgAdmin4 (el PgAdmin3 NO FUNCIONA con nuestra versión del DBMS)
+
+Los datos son:
+
+Host: dbases.exa.unicen.edu.ar
+
+Desde adentro de la unicen Puerto: 5432
+
+Desde afuera de la unicen Puerto: 6432
+
+Base: Tudai22
+
+usuario: unc_250653 pass: 250653
+
+------------------------------------
+ALTERNATIVAS
+
+Datagrip
+
+Host: 735c075ef204.sn.mynetname.net   puerto: 6432
+
+PHP PgAdmin
+
+http://735c075ef204.sn.mynetname.net:6080/phppgadmin/
